@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/headInner %>
+</head>
+
+<body id="bootstrap-overrides">
+    <header>
+        <% include ./partials/navbar %>
+    </header>
+
+    <div class="container" id="about">
+        <h3 class="bold"><%=user.name.givenName%>'s Forms</h3>
+
+        <div class="row">
+            <%if(message.length > 0){%>
+                <%=message%>
+              <%}%>
+              <%for(var i = 0; i < data.length; i++){%>
+
+            <div class="col-md-3 col-sm-6 itemListing">
+                <%if(data[i].image == null){%>
+                    <img height="200" src="/emptyImage.png" class="thumbnail" name="<%=data[i]._id%>"></img>
+                <%}else{%>
+                    <img height = "200" src = "<%=data[i].image%>" class="thumbnail" name = "<%=data[i]._id%>"></img>
+                <%}%>
+                <h1><%=data[i].title%></h1>
+                <h4 class="display-large"><%=data[i].description%></h4>
+                <p><%=data[i].email%></p>
+                <button class="activeButton" name= "edit<%=i%><%=data[i].title%>">EDIT</button>
+                <button class="genericButton" name= "delete<%=i%><%=data[i].title%>">DELETE</button>
+            </div>
+            <%}%>
+        </div>
+
+        <div hidden>
+            <form method = "POST" action = "/edit" id = "toSend"></input>
+              <input name = "editTitle"></input>
+            </form>
+
+            <form method = "POST" action = "/delete" id = "toDelete"></input>
+              <input name = "deleteTitle"></input>
+              </form>
+        </div>
+    </div>
+    <% include partials/bootstrapjs %>
+</body>
+
+<script>
+    <%for(var i = 0; i < data.length; i++){%>
+      $("button[name ='edit<%=i%><%=data[i].title%>']").on("click", function(){
+        //how to account for null in category--> make it required, and don't accept Pick a Category
+        $("input[name = 'editTitle']").val("<%=data[i].title%>");
+        $("#toSend").submit();
+      });
+
+      $("button[name = 'delete<%=i%><%=data[i].title%>']").on('click', function(){
+        var ask = window.confirm("Are you sure you want to delete <%=data[i].title%>?");
+          if(ask){
+            $("input[name = 'deleteTitle']").val("<%=data[i].title%>");
+            $("#toDelete").submit();
+          }
+
+      });
+    <%}%>
+</script>
+
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/headInner.ejs %>
+</head>
+
+<body id="bootstrap-overrides">
+    <% include ../partials/navbar.ejs %>
+
+    <div class="container" id="about">
+    <h3 class="bold">My Stickers</h3>
+        <% include ../partials/stickerNavbar.ejs %>
+
+        <%if(message.length>0){%>
+          <%=message%>
+        <%}%>
+      <%for(var i = 0; i < data.length; i++){%>
+        <center><img height = '200' width = '150'src= '/emptyImage.png'></img>
+        <h1 class="light"><%=data[i].title%></h1>
+        <h4 class="light"><%=data[i].number%></h4>
+      <%}%>
+    
+    </div>
+    <% include ../partials/bootstrapjs %>
+</body>
+
+<script>
+</script>
+</html>

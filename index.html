@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RESHWAP</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- THIS LINE IS WHAT MAKES THE WEBSITE LOOK GOOD ON ALL SCREENS - i.e. RESPONSIVE!! -->
+
+    <script type="text/javascript" src="jquery/jquery-1.12.0.min.js"></script>
+
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script> -->
+
+
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Pretty Google fonts -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+
+    <!-- Favicon -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="favicons/manifest.json">
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="favicons/favicon.ico">
+    <meta name="msapplication-config" content="favicons/browserconfig.xml">
+    <meta name="theme-color" content="#006494">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#help_index").click(function () {
+                var h = $("#help_index").html();
+                //console.log(h);
+                if (h == "More questions") {
+                    $("#help_index").text("email reshwap@lawrenceville.org");
+                }
+                else {
+                    $("#help_index").text("More questions");
+                }
+            });
+        });
+    </script>
+
+    <!-- Google Analytics -->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-93107403-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<nav>
+    <ul class="navbar">
+        <li><img class="logo" src="Reshwap%20Logo.png"></li>
+        <li><a>About</a></li>
+        <li>//<li>
+        <li><a>Contribute</a></li>
+    </ul>
+</nav>
+
+<body>
+    <!-- <div id="current-user"></div>
+
+
+	<h1>Log Out!</h1>
+	<div>
+		<button id="logout">Log Out</button>
+	</div> -->
+    <!-- LOG IN -->
+    <div class="indexWrapper">
+        <div class="indexPagecontent">
+            <form id="login" class="input-field-bg">
+                <label>
+                    <h1 class="section-header">Log In</h1></label>
+                <p class="input-description-label"></p>
+                <label>
+                    <p>
+                        <input class="genericButton" id="login-name" type="text" placeholder="Email address">
+                    </p>
+                </label>
+                <p id="login-email-missmatch-message" style="color:#ff0000"></p>
+                <p class="input-description-label"></p>
+                <p>
+                    <input class="genericButton" id="login-password" type="password" placeholder="Password">
+                </p>
+                <p id="incognito-disclaimer">Do not add @lawrenceville.org</p>
+                <p>
+                    <button class="genericBlueButton" id="login-submit" onclick="signIn()">LOG IN</button>
+                </p>
+
+                <p id="forgotPassword">Forgot/reset my password</p>
+                <div id="password-reset-fields" class="collapse">
+
+                    <input id="password-reset-email" type="text" placeholder="Enter email address">
+
+                    <p id="reset-email-missmatch-message" style="color: #c40000"></p>
+                    <button type="button" class="genericBlueButton" id="resetPassword" onclick="resetPaaword()">Send email</button>
+                </div>
+            </form>
+            <!-- REGISTER -->
+            <div id="extraContent">
+                <form>
+                    <label class="section-header" id="sign-me-up">
+                        <h1 id="signupHeader">Sign me up</h1>
+                    </label>
+                    <div id="signup-fields" class="collapse">
+                        <label>
+                            <p>
+                                <input class="genericButton" id="signup-name" type="text" placeholder="Enter email address">
+                            </p>
+                        </label>
+                        <p id="email-missmatch-message" style="color:#ff0000"></p>
+                        <p>
+                            <input class="genericButton" id="signup-password" type="password" placeholder="Enter password">
+                        </p>
+                        <p>
+                            <input class="genericButton" id="confirm-password" type="password" placeholder="Once more for to be sure">
+                        </p>
+                        <p id="password-missmatch-message" style="color:#ff0000"></p>
+                        <p>
+                            <button class="genericBlueButton" id="signup-submit" onclick="signUp()">Sign me up</button>
+                        </p>
+                        <!-- <input id="signup-submit" type="submit"> -->
+                    </div>
+                </form>
+                <form>
+                    <h4 id="question"><a href="safety.html" target="_blank">Is this safe?</a></h4>
+                </form>
+                <p id="help_index">More questions</p>
+            </div>
+        </div>
+
+        <div class="indexPageDescription">
+            <div class="rw-wrapper">
+                <ul>
+                    <li><img class="logoShort" src="Reshwap%20Logo%20Small.png"></li>
+                    <li>shwap</li>
+                    <li>share</li>
+                    <li>swap</li>
+                </ul>
+            </div>
+
+            <div class="descriptionWrapper">
+                <h2>Anything with anybody</h2>
+                <p>Advertise or browse offers for textbooks, furniture, or electronics with the assurance that owners can be directly contacted.</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        //bootstrap related code that is responsible for hiding and unhiding sign up elements
+        $(window).on('load', function () {
+            $("#signup-fields").collapse('hide');
+        })
+        $(document).ready(function () {
+            $("#signupHeader").click(function () {
+                console.log("click");
+                $("#signup-fields").collapse('toggle');
+            });
+        });
+        //
+        $(window).on('load', function () {
+            $("#password-reset-fields").collapse('hide');
+        })
+        $(document).ready(function () {
+            $("#forgotPassword").click(function () {
+                $("#password-reset-fields").collapse('toggle');
+            });
+        });
+        // The question field
+        $(window).on('load', function () {
+            $("#answer").collapse('hide');
+        })
+        $(document).ready(function () {
+            $("#question").click(function () {
+                console.log("click");
+                $("#answer").collapse('toggle');
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        //resetting the password is done here:
+        function resetPaaword() {
+            //validating email:
+            var emailAddressArray = $("#password-reset-email").val().toLowerCase().split("@");
+            var emailHost = emailAddressArray[1];
+            // console.log(emailHost);
+            if (emailHost == "lawrenceville.org") {
+                var emailConfirmed = true;
+                $("#reset-email-missmatch-message").empty();
+            }
+            else {
+                emailConfirmed = false;
+                document.getElementById("reset-email-missmatch-message").innerHTML = "Email address not found";
+                return;
+            }
+            var resetEmail = $("#password-reset-email").val().toLowerCase();
+            Parse.User.requestPasswordReset(resetEmail, {
+                success: function () {
+                    // Password reset request was sent successfully
+                    document.getElementById("password-reset-fields").innerHTML = "Check Your email...again ;)";
+                    console.log("email sent");
+                }
+                , error: function (error) {
+                    // Show the error message somewhere
+                    alert("Error: " + error.code + " " + error.message);
+                }
+            });
+        }
+    </script>
+</body>
+ <!-- Linking Firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+<!-- Initializing firebase -->
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBjC0LvxiL8Epg-YO5ohd2ZBb_CdbkI8h4",
+        authDomain: "reshwaptest.firebaseapp.com",
+        databaseURL: "https://reshwaptest.firebaseio.com",
+        storageBucket: "reshwaptest.appspot.com",
+        messagingSenderId: "1083636691406"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script>
+    function signUp() {
+        event.preventDefault();
+        console.log("here");
+        var email = document.getElementById("signup-name").value.concat("@lawrenceville.org");
+        var pass = document.getElementById("signup-password").value;
+
+        firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+        }).then(function(){
+          verifyEmail();//Calls the verify email function that is described below.
+
+        }).then(function(){//this creates a new user entry with all of their data
+          var db = firebase.database();
+          var ref = db.ref("users");
+
+          var entry = {
+            email: email,
+            uid:firebase.auth().currentUser.uid,
+            emailVerified: false
+          }
+          ref.push(entry);
+          console.log("fofo");
+        });
+
+    }
+
+    function verifyEmail() {
+      var user = firebase.auth().currentUser;
+
+      user.sendEmailVerification().then(function() {
+        // Email sent.
+        alert("Congratulations! You have been accepted... jk. Check your email to confirm your account and proceed to using the website");
+      }, function(error) {
+        // An error happened.
+        alert(error);
+      });
+
+    }
+
+    function signIn() {
+      event.preventDefault();
+      console.log("hebgr");
+        var email = document.getElementById("login-name").value.concat("@lawrenceville.org");
+        var pass = document.getElementById("login-password").value;
+
+        firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorMessage);
+            // ...
+        }).then(function(){
+          //console.log("logged in successful... verifying email");
+          checkEmailVer();
+        })
+
+
+
+    }
+
+    //the function checks wether the email is verified or not.
+    function checkEmailVer(){
+      if (firebase.auth().currentUser.emailVerified === true) {
+
+        move();
+
+      } else {
+        alert("Looks like you have not yet verified your email");
+      }
+
+    }
+
+
+    function move(){
+      //Important to move pages in the following if statement as it will make sure the
+      //authentication is not in a transition state.
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in.
+          if (firebase.auth().currentUser.emailVerified === true){
+            window.location.href = './lf.html';//Redirects to the lf page
+          }
+        } else {
+          // No user is signed in.
+        }
+      });
+
+    }
+
+    //Calls the function so that if the user opens the page and he is already signed in - he just skips this page
+    move();
+</script>
+
+
+<footer>
+    <div class="columnWrapper">
+        <div class="secondaryColumnWrapper">
+            <div class="column1">
+                <h3>Reference</h3>
+                <ul>
+                    <li><a>How to use Reshwap</a></li>
+                    <li><a>About Reshwap</a></li>
+                    <li><a>Troubleshooting</a></li>
+                </ul>
+            </div>
+
+            <div class="column2">
+                <h3>Contribute</h3>
+                <ul>
+                    <li><a>Github page</a></li>
+                    <li><a>Contact us on Github</a></li>
+                    <li><a>Suggest an improvement</a></li>
+                    <li><a>Report a bug</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <p>by Max Drojjin, Matthew Gunton, Eric Cheng, Alper Canberk and Aidan Jalili </p>
+
+        <p>Reshwap 2016-</p>
+    </div>
+</footer>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ./partials/headInner.ejs %>
+</head>
+
+<body id="bootstrap-overrides">
+    <% include ./partials/navbar.ejs %>
+
+    <div class="container" id="about">
+    <% if (message.length>0){%>
+      <%=message%>
+  <%}%>
+  <% if (link.length>0){%>
+    <a href = "/<%=link%>"><%=link%></a>
+    <%}%>
+
+    <h3 class="bold">Upload</h3>
+        
+    <form id = "mainForm" method = "post" action = "/upload/" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="btn-group bootstrap-select form-control" style="width: 100%;">
+                <div class="dropdown-menu open" role="combobox">
+                    <ul class="dropdown-menu inner" role="listbox" aria-expanded="false">
+                        <option value="Item category">Item category</option>
+                        <option value="Books">Books</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Other">Other</option>
+                    </ul>
+                </div>
+    
+                <select class="selectpicker form-control" data-width="75%" tabindex="-98" name="categorySelect">
+                    <option value="Item category">Item category</option>
+                    <option value="Books">Books</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+    <input name = "category" hidden readonly></input>
+        
+        <div class="form-group">
+            <input name = "title" class="form-control genericInput" placeholder="Title"></input>
+        </div>
+    
+        <div class="form-group">
+            <input name = "image" class="form-control" type = "file" accept="image/jpeg" placeholder="Upload image"></input>
+        </div>
+    
+        <div class="form-group">
+            <textarea name = "description" class="form-control genericInput" placeholder="Description of item"></textarea>
+        </div>
+    <button type = 'button' onclick= "check()" class="activeButton">UPLOAD</button>
+    </form>
+
+    <% include partials/bootstrapjs %>
+</body>
+
+<script>
+<%//grab selection value%>
+$("select[name = 'categorySelect']").on('change', function(){
+  var a  = $("select[name = 'categorySelect'] :selected").val();
+  //how to make sure you choose a category
+  $("input[name = 'category']").val(a);
+});
+
+function check(){
+  var category = $("input[name = 'category']").val();
+  var description = $("input[name = 'description']").val();
+  var title = $("input[name = 'title']").val();
+
+  if(title==""){
+    console.log(title);
+    alert("Items must have a title.");
+    return;
+  }
+  if(category =="" || category == "Pick a category"){
+    alert("Items must belong in a category.");
+    return;
+  }
+  if(description == ""){
+    var a = confirm("Are you sure you want to submit your Reshwap without a description?");
+    if(a){
+      console.log('submitted');
+      $("#mainForm").submit();
+    }
+    else{
+      return;
+    }
+  }
+
+  if(description!== "" && title !=="" && category !==""){
+    $("#mainForm").submit();
+  }
+
+}
+
+function nothing(){
+  console.log('nothing');
+  return;
+}
+</script>
+
+</html>

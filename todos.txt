@@ -1,0 +1,50 @@
+Rebuilding reshwap from the ground up
+
+Using a virtual server on DigitalOcean to host it
+using the domain name reshwap.com
+
+backburner:
+1. new links to send out emails for found items and wrongfully told items
+
+todos:
+
+1. ORDER NEW ALUMIGUARD STICKERS
+9. CSS completely
+
+make chat room for people who want to negotiate prices and such on reshwap
+
+
+!!!!!!!WHEN RESHWAP GOES LIVE, CHANGE CALLBACKURL TO RESHWAP.COM!!!!!!!
+
+completed:
+
+1. delete forms option
+2. make sure user cannot report their own item as found
+8. make sure on upload page that the person chooses a category
+7. [nodemailer] to mail out we found your object
+1. change where edit page returns you to after you edit something successfully
+1. allow new image to edit
+5. need to write if statement to stop "Pick a category" from being sent through
+6. in edit.ejs drop down menu, need to stop category from appearing twice
+3. make sure image is small enough to be stored
+4. add req.flash messages
+2. make sure file entered is image
+1. Edit forms allowed
+5. add image to home & books & furniture & electronics & other so they appear in search bar
+Attach users via google {passport npm}
+4. need to write rename function for image upload
+1. Add user option for facebook and google [NEXT]
+1.Take req.session.passport variables into the area
+add localhost as recognized domain for developer.facebook
+2. redefine search parameters
+upload commands
+Books page
+Furniture page
+Electronics page
+other page
+sticker system
+links between pages
+LOOK INTO GRIDFS [next] example app:
+*use express-fileupload
+//need to use:
+-->multer.npm(otherwise req.files won't work for some reason)

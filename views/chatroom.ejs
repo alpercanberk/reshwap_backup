@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RESHWAP-- Books</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel = "stylesheet" href = "/css/stylesheet.css"></link>
+</head>
+
+<body>
+<% include ./partials/navbar.ejs %>
+
+  <h1>Chatroom</h1>
+  <h3>welcome <%=user.name.givenName%></h3>
+
+
+  <form method = "post" action = "/chatroom">
+    <input type = "text" name = "chatInput" placeholder= "negotiate here..." maxlength="200"></input>
+    <button type = "submit">SEND</button>
+  </form>
+
+</body>
+
+<script>
+
+</script>
+</html>

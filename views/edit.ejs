@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/headInner %>
+</head>
+
+<body id="bootstrap-overrides">
+    <header>
+        <% include ./partials/navbar %>
+    </header>
+
+    <div class="container" id="about">
+        <h3 class="bold">Edit forms</h3>
+
+    <form method = "post" action = "/novaUpload" enctype="multipart/form-data">
+        <div class="form-group">
+            <select class="selectpicker form-control" data-width="75%" tabindex="-98" name = "categorySelect">
+                <%var category = [data[0].category, "Books", "Furniture", "Electronics", "Other"];%>
+                    <%for(var i = 0; i< category.length; i++){%>
+                    <%if(i!== 0){%>
+                    <%if(category[i]==data[0].category){%>
+                    <%category.splice(i, 1);%>
+                    <%}%>
+                    <%}%>
+                <%}%>
+                <%for(var i = 0; i < category.length; i++){%>
+                    <option value = "<%=category[i]%>"><%=category[i]%></option>
+                <%}%>
+            </select> 
+        </div>
+    <input name = "category" hidden readonly></input>
+        
+        <div class="form-group">
+            <input name = "title" class="form-control genericInput" placeholder="Title" value = "<%=data[0].title%>"></input>
+        </div>
+    
+        <div class="form-group">
+            <input name = "image" class="form-control" type = "file" accept="image/jpeg" placeholder="Upload image"></input>
+        </div>
+    
+        <div class="form-group">
+            <textarea name = "description" class="form-control genericInput"><%=data[0].description%></textarea>
+        </div>
+    <button type = 'button' onclick= "check()" class="activeButton">EDIT</button>
+    </form>
+
+    </div>
+
+    <% include partials/bootstrapjs %>
+</body>
+
+<script>
+    console.log("<%=data[0].category%>");
+$("#imageQue").on('click', function(){
+  alert("If you want to keep no picture or keep your picture the same, don't upload any new file. If you want your image to change, upload a new file.")
+})
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<div class="row">
+
+<%for(var i = 0; i< data.length; i++){%>
+  <div class="col-lg-4 col-md-6 thumbnailContainer">
+
+            <div>
+              <%if(data[i].image == null){%>
+                    <div class="itemListing col-md-3 col-sm-6">
+                        <img height = "200" src = "/emptyImage.png" name = "<%=data[i]._id%>" class="thumbnail"></img>
+                    </div>
+              <%}else{%>
+                    <div class="itemListing col-md-3 col-sm-6">
+                        <img height = "200" src = "<%=data[i].image%>" name = "<%=data[i]._id%>" class="thumbnail"></img>
+                    </div>
+              <%}%>
+            </div>
+          <h2><%=data[i].title%></h2>
+          <h4><%=data[i].description%></h4>
+          <a href="mailto:<%=data[i].email%>?subject=Reshwap - I am interested in buying <%=data[i].title%>"><h5 style="color:#F3823F" name="<%=data[i]._id%>"><%=data[i].email%></h5></a>
+  </div class="col-md-4">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  $("h5[name = '<%=data[i]._id%>']").on("click", function() {
+  console.log("<%=data[i].title%>");
+});
+</script>
+<%}%>

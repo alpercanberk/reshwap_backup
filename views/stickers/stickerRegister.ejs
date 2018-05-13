@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/headInner.ejs %>
+</head>
+
+<body id="bootstrap-overrides">
+    <% include ../partials/navbar.ejs %>
+
+    <div class="container" id="about">
+    <h3 class="bold">My Stickers</h3>
+        <% include ../partials/stickerNavbar.ejs %>
+        
+    <h3 class="bold stickerLookup">Manage Stickers</h3>
+        <form method = "POST" action = "/stickers/upload">    
+            <div class="form-group">
+                <input name = "title" placeholder="Title"></input>
+            </div>
+
+            <div class="form-group">
+                <input name = "number" type = "number" placeholder="Number"></input>
+            </div>
+
+            <div class="form-group">
+                <input name = "email" placeholder="Email"></input>
+            </div>
+
+            <button type = 'button' class="activeButton">CREATE</button>
+        </form>
+
+        <form class="stickerLookup" method = "POST" action = "/stickers/delete">
+              <div class="form-group">   
+                  <input name = "number" placeholder="
+                  Number"></input>
+            </div> 
+                <button type="submit" class="genericButton">DELETE</button>
+        </form>
+
+    <% include ../partials/bootstrapjs %>
+</body>
+
+<script>
+//create way to put in many different stickers at once
+
+$("input[name = 'email']").on('change', function(){
+  var email = $("input[name = 'email']").val();
+  console.log(email);
+  email = email + "@lawrenceville.org";
+  $("input[name = 'email']").val(email);
+
+})
+</script>
+</html>

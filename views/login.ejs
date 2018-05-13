@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include partials/head %>
+</head>
+
+<body id="bootstrap-overrides">
+    <% include partials/header %>
+    
+    <div class="container">
+        <h1 class="text-center">Reshwap 2.0</h1>
+    </div>
+    
+    
+    <div class="container">
+        <% if (message.length>0){%>
+          <%=message%>
+        <%}%>
+        <form method = "POST" action = "/">
+        User:<input name = "user"></input>
+        Password: <input name = "password" type = "password"></input>
+        <button type = 'submit'>LOGIN</button>
+        </form>
+        <br>
+        <!-- <a href = "/auth/google">Log in With Google</a><br> -->
+        <!--a href = "/register">REGISTER FOR RESHWAP</a>
+        <br>
+        <a href = "/auth/facebook">LOGIN WITH FACEBOOK</a-->
+        <br>
+        <a href = "/auth/google">LOGIN WITH GOOGLE</a>
+    </div>
+    
+    <% include partials/bootstrapjs %>
+</body>
+</html>

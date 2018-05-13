@@ -1,0 +1,5 @@
+<%if(data[i].image == null){%>
+  $("#displayItemInfo").append("<center><img height = '200' width = '150'src= '/emptyImage.png'></img>");
+<%}else{%>
+$("#displayItemInfo").append("<center><img height = '200' width = '150'src= '/<%=data[i].image%>'></img>");
+<%}%>

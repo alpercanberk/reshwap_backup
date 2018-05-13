@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/headInner.ejs %>
+</head>
+
+<body id="bootstrap-overrides">
+    <% include ../partials/navbar.ejs %>
+
+    <div class="container" id="about">
+    <h3 class="bold">My Stickers</h3>
+        <% include ../partials/stickerNavbar.ejs %>
+        
+    <h3 class="bold stickerLookup">Sticker Lookup</h3>
+        
+    <form class="stickerLookup" method = "POST" action = "/stickers/lookup">
+        <h2 class="light">Sticker number</h2><input name = "sticker" type = "number"></input>
+        <button type = "submit" class="activeButton">LOOK UP</button>
+    </form>
+
+  <%if(data.length>0){%>
+    <%for(var i = 0; i<data.length; i++){%>
+    <form method = "post" action = "/mail">
+      <input hidden name = "stickerNumber" type = "number" value = "<%=data[0].number%>" readonly></input>
+      <h2 class="light itemFound"><%=data[0].title%></h2>
+      <button type = "submit" class="activeButton">REPORT FOUND</button>
+    </form>
+  <%}}%>
+
+    <% include ../partials/bootstrapjs %>
+</body>
+
+<script>
+</script>
+</html>
